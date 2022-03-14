@@ -1,0 +1,2 @@
+database:
+  connstring: host=localhost port=5432 dbname=rankr user=postgres password=postgres sslmode=disable
