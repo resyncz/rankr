@@ -16,11 +16,11 @@ FROM alpine:3.15.0
 
 RUN apk add ca-certificates
 
-WORKDIR /usr/local/bin/rankr
+WORKDIR /rankr
 
 COPY --from=base_build /app/rankr-svc .
 COPY --from=base_build /app/conf/ ./conf/
 
 EXPOSE 8080
 
-ENTRYPOINT ["/usr/local/bin/rankr/rankr-svc"]
+ENTRYPOINT ["/rankr/rankr-svc"]
