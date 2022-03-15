@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: rankr-svc
-          image: semirm/rankr-svc:3
+          image: semirm/rankr-svc:4
           ports:
             - containerPort: 8080
           resources:
