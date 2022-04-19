@@ -4,6 +4,7 @@ import (
 	"flag"
 	"github.com/gin-gonic/gin"
 	"github.com/resyncz/rankr/internal/conf"
+	"github.com/resyncz/rankr/internal/elastic"
 	"github.com/resyncz/rankr/internal/httpserver"
 	"github.com/resyncz/rankr/internal/web"
 	"github.com/sirupsen/logrus"
@@ -23,9 +24,15 @@ func main() {
 		logrus.Fatal(err)
 	}
 
+	esConf := elastic.NewConfig()
+	_, err := elastic.NewClient(esConf)
+	if err != nil {
+		logrus.Fatal(err)
+	}
+
 	router := web.NewRouter()
 
-	//db := PostgresDb(viper.GetString("database.connstring"))
+	//db := PostgredDb(viper.GetString("database.connstring"))
 	//if err := db.AutoMigrate(); err != nil {
 	//	logrus.Fatal("failed to migrate *User: ", err)
 	//}
